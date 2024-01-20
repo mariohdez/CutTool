@@ -5,19 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5935eb3-61d3-4667-835a-99bf739e376a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/mariocoding/Cut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/mariocoding/utilities/ArgumentParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fourchords.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sample.tsv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/mariocoding/utilities/ArgumentParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/mariocoding/Cut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mariocoding/Cut.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +26,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -39,12 +36,30 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="CutTool" type="f1a62948:ProjectNode" />
               </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CutTool" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="CutTool" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
             </expand>
             <select />
           </tree_state>
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -59,10 +74,18 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.org.mariocoding.Cut">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.ArgumentParserTest">
     <configuration name="Cut" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Cut" />
       <module name="CutTool.main" />
@@ -79,6 +102,7 @@
     <configuration name="org.mariocoding.Cut" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.mariocoding.Cut" />
       <module name="CutTool.main" />
+      <option name="PROGRAM_PARAMETERS" value="-f&quot;1&quot;" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.mariocoding.*" />
@@ -88,6 +112,52 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="ArgumentParserTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.mariocoding.utilities.ArgumentParserTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="ArgumentParserTest.parseFieldListWithValidValues" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;org.mariocoding.utilities.ArgumentParserTest.parseFieldListWithValidValues&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="CutTool [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -110,8 +180,17 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.Cut" />
+      <item itemvalue="Application.org.mariocoding.Cut" />
+      <item itemvalue="Gradle.ArgumentParserTest" />
+      <item itemvalue="Gradle.ArgumentParserTest.parseFieldListWithValidValues" />
+      <item itemvalue="Gradle.CutTool [build]" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ArgumentParserTest" />
+        <item itemvalue="Gradle.ArgumentParserTest.parseFieldListWithValidValues" />
         <item itemvalue="Gradle.CutTool [build]" />
         <item itemvalue="Application.org.mariocoding.Cut" />
         <item itemvalue="Application.Cut" />

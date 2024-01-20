@@ -1,7 +1,10 @@
 package org.mariocoding;
 
+import org.mariocoding.utilities.ArgumentParser;
+
 public class Cut {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        ArgumentParser argumentParser = new ArgumentParser(args);
+        System.out.println(argumentParser);
     }
 }

@@ -32,8 +32,8 @@ public class ArgumentParser {
 
                 if (args[i].length() > 2) {
                     unparsedFieldList = args[i].substring(2);
-                } else if ((i+1) < args.length) {
-                    unparsedFieldList = args[i+1];
+                } else if ((i + 1) < args.length) {
+                    unparsedFieldList = args[i + 1];
                     i++;
                 } else {
                     throw new IllegalArgumentException("Arguments were malformed.");
@@ -47,8 +47,8 @@ public class ArgumentParser {
                 String unparsedDelimter;
                 if (args[i].length() > 2) {
                     unparsedDelimter = args[i].substring(2);
-                } else if ((i+1) < args.length) {
-                    unparsedDelimter = args[i+1];
+                } else if ((i + 1) < args.length) {
+                    unparsedDelimter = args[i + 1];
                     i++;
                 } else {
                     throw new IllegalArgumentException("Delimiter argument modifier malformed.");

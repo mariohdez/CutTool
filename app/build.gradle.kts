@@ -28,6 +28,10 @@ application {
     mainClass.set("org.mariocoding.Cut")
 }
 
+tasks.jar {
+    manifest.attributes["Main-Class"] = application.mainClass
+}
+
 tasks.getByName<Test>("test") {
     useJUnitPlatform()
 }

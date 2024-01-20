@@ -16,7 +16,7 @@ public class ArgumentParserTest {
     @ParameterizedTest
     @MethodSource("fieldListInputsAndResults")
     public void constructorWhenValidFieldListAndFileNameConstructsObject(String argument, List<Integer> expectedFieldList, char expectedDelimiter) {
-        ArgumentParser argumentParser = new ArgumentParser(new String[]{argument, "fileName"});
+        ArgumentParser argumentParser = new ArgumentParser(new String[]{argument, FILE_NAME});
 
         List<Integer> actualFieldList = argumentParser.getFieldList();
 
@@ -56,11 +56,12 @@ public class ArgumentParserTest {
 
     private static Stream<Arguments> fieldListAndDelimiterInputsAndResults() {
         return Stream.of(
-                Arguments.of(new String[]{"-f1", "-d,", FILE_NAME}, List.of(1), COMMA),
-                Arguments.of(new String[]{"-f1", "-d ,", FILE_NAME}, List.of(1), COMMA),
-                Arguments.of(new String[]{"-f1,2,3", "-d \",\"", FILE_NAME}, List.of(1, 2, 3), COMMA),
-                Arguments.of(new String[]{"-f1,2,3", "-d\",\"", FILE_NAME}, List.of(1, 2, 3), COMMA),
-                Arguments.of(new String[]{"-f1,2,3", "-d\",\"", FILE_NAME}, List.of(1, 2, 3), COMMA)
+                Arguments.of(
+                        new String[] {"-f1", "-d,", FILE_NAME}, List.of(1), COMMA),
+                Arguments.of(new String[] {"-f1", "-d ,", FILE_NAME}, List.of(1), COMMA),
+                Arguments.of(new String[] {"-f1,2,3", "-d \",\"", FILE_NAME}, List.of(1, 2, 3), COMMA),
+                Arguments.of(new String[] {"-f1,2,3", "-d\",\"", FILE_NAME}, List.of(1, 2, 3), COMMA),
+                Arguments.of(new String[] {"-f1,2,3", "-d\",\"", FILE_NAME}, List.of(1, 2, 3), COMMA)
         );
     }
 }

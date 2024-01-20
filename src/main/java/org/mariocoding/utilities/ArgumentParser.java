@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArgumentParser {
+    private boolean hasFileName;
     private boolean hasFieldList;
     private List<Integer> fieldList = new ArrayList<>();
+    private List<String> fileNames = new ArrayList<>();
 
     private static final String FIELDS_PREFIX = "-f";
     private static final String QUOTE = "\"";
+    private static final String DELIMITER_PREFIX = "-d";
 
     public ArgumentParser(String[] args) {
         if (args == null) {
@@ -23,7 +26,7 @@ public class ArgumentParser {
         int i = 0;
 
         while (i < args.length) {
-            if (args[i].startsWith(this.FIELDS_PREFIX)) {
+            if (args[i].startsWith(this.FIELDS_PREFIX) && !this.hasFileName) {
                 this.hasFieldList = true;
                 String unparsedFieldList;
 
@@ -37,6 +40,10 @@ public class ArgumentParser {
                 }
 
                 this.parseFieldList(unparsedFieldList);
+            } else if (args[i].startsWith(DELIMITER_PREFIX) && !this.hasFileName) {
+            } else {
+                this.hasFileName = true;
+                this.fileNames.add(args[i]);
             }
 
             i++;
@@ -45,6 +52,14 @@ public class ArgumentParser {
 
     public List<Integer> getFieldList() {
         return this.fieldList;
+    }
+
+    public boolean hasFieldList() {
+        return this.hasFieldList;
+    }
+
+    public String getFileName() {
+        return this.fileNames.size() > 0 ? this.fileNames.get(0) : null;
     }
 
     private void parseFieldList(String unparsedFieldList) {

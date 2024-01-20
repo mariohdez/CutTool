@@ -12,7 +12,7 @@ public class ArgumentParserTest {
     @ParameterizedTest
     @MethodSource("inputsAndResults")
     public void parseFieldListWithValidValues(String argument, List<Integer> expectedFieldList) {
-        ArgumentParser argumentParser = new ArgumentParser(new String[] {argument});
+        ArgumentParser argumentParser = new ArgumentParser(new String[] {argument, "fileName"});
 
         List<Integer> actualFieldList = argumentParser.getFieldList();
 

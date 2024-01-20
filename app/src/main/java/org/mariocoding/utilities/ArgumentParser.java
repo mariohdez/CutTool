@@ -108,11 +108,7 @@ public class ArgumentParser {
         String[] elements = unparsedFieldList.split(",");
 
         for (String element : elements) {
-            try {
-                this.fieldList.add(Integer.parseInt(element));
-            } catch (NumberFormatException nfe) {
-                throw new IllegalArgumentException(String.format(ERROR_MESSAGE_FORMATTER, unparsedFieldList), nfe);
-            }
+            this.fieldList.add(Integer.parseInt(element));
         }
     }
 

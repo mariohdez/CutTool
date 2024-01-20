@@ -3,10 +3,6 @@ package org.mariocoding;
 import org.mariocoding.utilities.ArgumentParser;
 
 import java.io.*;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.List;
 
 public class Cut {
@@ -18,7 +14,7 @@ public class Cut {
         }
     }
 
-    public void runApplication(String[] args) throws IOException, URISyntaxException {
+    public void runApplication(String[] args) throws IOException {
         ArgumentParser argumentParser = new ArgumentParser(args);
         String fileName = argumentParser.getFileName();
 
@@ -31,8 +27,12 @@ public class Cut {
             inputStream = classloader.getResourceAsStream(fileName);
         }
 
+        if (inputStream == null) {
+            throw new IllegalArgumentException("inputStream is null.");
+        }
+
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream))) {
-            String line = null;
+            String line;
 
             while ((line = bufferedReader.readLine()) != null) {
                 String[] elements = line.split("\t");
@@ -40,16 +40,17 @@ public class Cut {
                 List<Integer> fieldList = argumentParser.getFieldList();
 
                 for (int i = 0; i < fieldList.size(); i++) {
-                    int fieldNumber = fieldList.get(i).intValue() - 1;
+                    int fieldNumber = fieldList.get(i) - 1;
                     if (fieldNumber >= fieldCount) {
                         continue;
                     }
-                    System.out.print(elements[fieldNumber]);
+                    System.out.print(elements[fieldNumber] + (i < (fieldList.size() -1) ? "\t" : ""));
                 }
 
                 System.out.println();
             }
         }
+
     }
 
 }

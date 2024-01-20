@@ -49,28 +49,32 @@ public class ArgumentParser {
 
     private void parseFieldList(String unparsedFieldList) {
         String errorMessage = String.format("Field list is malformed: %1$s.", unparsedFieldList);
-        unparsedFieldList = unparsedFieldList.trim();
-        int len = unparsedFieldList.length();
-        boolean validNoQuotes = len > 0 && Character.isDigit(unparsedFieldList.charAt(0)) && Character.isDigit(unparsedFieldList.charAt(len - 1));
-        boolean validWithQuotes = len > 0 && unparsedFieldList.startsWith(this.QUOTE) && unparsedFieldList.endsWith(this.QUOTE);
+        String trimmedUnparsedFieldList = unparsedFieldList.trim();
+        int len = trimmedUnparsedFieldList.length();
+        boolean validNoQuotes = len > 0 && Character.isDigit(trimmedUnparsedFieldList.charAt(0)) && Character.isDigit(trimmedUnparsedFieldList.charAt(len - 1));
+        boolean validWithQuotes = len > 0 && trimmedUnparsedFieldList.startsWith(this.QUOTE) && trimmedUnparsedFieldList.endsWith(this.QUOTE);
 
         if (!validWithQuotes && !validNoQuotes) {
             throw new IllegalArgumentException(errorMessage);
         }
 
+        String noQuotesFieldList;
+
         if (validWithQuotes) {
-            unparsedFieldList = unparsedFieldList.substring(1, len - 1);
+            noQuotesFieldList = trimmedUnparsedFieldList.substring(1, len - 1);
+        } else {
+            noQuotesFieldList = trimmedUnparsedFieldList;
         }
 
-        for (int i = 0; i < unparsedFieldList.length(); i++) {
-            if (Character.isDigit(unparsedFieldList.charAt(i)) || unparsedFieldList.charAt(i) == ',') {
+        for (int i = 0; i < noQuotesFieldList.length(); i++) {
+            if (Character.isDigit(noQuotesFieldList.charAt(i)) || noQuotesFieldList.charAt(i) == ',') {
                 continue;
             }
 
             throw new IllegalArgumentException(errorMessage);
         }
 
-        String[] elements = unparsedFieldList.split(",");
+        String[] elements = noQuotesFieldList.split(",");
 
         for (int i = 0; i < elements.length; i++) {
             try {

@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5935eb3-61d3-4667-835a-99bf739e376a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/mariocoding/utilities/ArgumentParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/mariocoding/utilities/ArgumentParserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/mariocoding/utilities/ArgumentParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mariocoding/utilities/ArgumentParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +56,11 @@
       </list>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/.gradle/caches/transforms-3/b857c89a93e3ad26d7a3a2df48b5cb23/transformed/unzipped-distribution/gradle-7.5.1/subprojects/testing-base/src/main/java/org/gradle/api/internal/tasks/testing/SuiteTestClassProcessor.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$USER_HOME$/.gradle/caches/transforms-3/b857c89a93e3ad26d7a3a2df48b5cb23/transformed/unzipped-distribution/gradle-7.5.1/subprojects/testing-junit-platform/src/main/java/org/gradle/api/internal/tasks/testing/junitplatform/JUnitPlatformTestClassProcessor.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-17.0.6/Contents/Home/lib/src.zip!/java.base/java/lang/String.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -71,7 +77,8 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">

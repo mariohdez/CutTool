@@ -35,7 +35,7 @@ public class Cut {
             String line;
 
             while ((line = bufferedReader.readLine()) != null) {
-                String[] elements = line.split("\t");
+                String[] elements = line.split(String.format("%s", argumentParser.getDelimiter()));
                 int fieldCount = elements.length;
                 List<Integer> fieldList = argumentParser.getFieldList();
 

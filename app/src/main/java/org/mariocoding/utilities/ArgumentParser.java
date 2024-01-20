@@ -1,18 +1,19 @@
 package org.mariocoding.utilities;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ArgumentParser {
     private boolean hasFileName;
-    private boolean hasFieldList;
-    private List<Integer> fieldList = new ArrayList<>();
-    private List<String> fileNames = new ArrayList<>();
+    private char delimiter = '\t';
+    private final List<Integer> fieldList = new ArrayList<>();
+    private final List<String> fileNames = new ArrayList<>();
 
     private static final String FIELDS_PREFIX = "-f";
     private static final String QUOTE = "\"";
     private static final String DELIMITER_PREFIX = "-d";
+    private static final String ERROR_MESSAGE_FORMATTER = "Field list is malformed: %1$s.";
+    private static final String ERROR_MESSAGE_DELIMITER_FORMATTER = "Delimiter is malformed: %1s.";
 
     public ArgumentParser(String[] args) {
         if (args == null) {
@@ -26,21 +27,37 @@ public class ArgumentParser {
         int i = 0;
 
         while (i < args.length) {
-            if (args[i].startsWith(this.FIELDS_PREFIX) && !this.hasFileName) {
-                this.hasFieldList = true;
+            if (args[i].startsWith(FIELDS_PREFIX) && !this.hasFileName) {
                 String unparsedFieldList;
 
                 if (args[i].length() > 2) {
                     unparsedFieldList = args[i].substring(2);
-                } else if (i < args.length) {
+                } else if ((i+1) < args.length) {
                     unparsedFieldList = args[i+1];
                     i++;
                 } else {
                     throw new IllegalArgumentException("Arguments were malformed.");
                 }
 
+                unparsedFieldList = cleanArgumentModifier(unparsedFieldList);
+                validateFieldList(unparsedFieldList);
+
                 this.parseFieldList(unparsedFieldList);
             } else if (args[i].startsWith(DELIMITER_PREFIX) && !this.hasFileName) {
+                String unparsedDelimter;
+                if (args[i].length() > 2) {
+                    unparsedDelimter = args[i].substring(2);
+                } else if ((i+1) < args.length) {
+                    unparsedDelimter = args[i+1];
+                    i++;
+                } else {
+                    throw new IllegalArgumentException("Delimiter argument modifier malformed.");
+                }
+
+                unparsedDelimter = cleanArgumentModifier(unparsedDelimter);
+                validateDelimiter(unparsedDelimter);
+
+                this.delimiter = unparsedDelimter.charAt(0);
             } else {
                 this.hasFileName = true;
                 this.fileNames.add(args[i]);
@@ -54,49 +71,62 @@ public class ArgumentParser {
         return this.fieldList;
     }
 
-    public boolean hasFieldList() {
-        return this.hasFieldList;
-    }
-
     public String getFileName() {
         return this.fileNames.size() > 0 ? this.fileNames.get(0) : null;
     }
 
-    private void parseFieldList(String unparsedFieldList) {
-        String errorMessage = String.format("Field list is malformed: %1$s.", unparsedFieldList);
-        String trimmedUnparsedFieldList = unparsedFieldList.trim();
-        int len = trimmedUnparsedFieldList.length();
-        boolean validNoQuotes = len > 0 && Character.isDigit(trimmedUnparsedFieldList.charAt(0)) && Character.isDigit(trimmedUnparsedFieldList.charAt(len - 1));
-        boolean validWithQuotes = len > 0 && trimmedUnparsedFieldList.startsWith(this.QUOTE) && trimmedUnparsedFieldList.endsWith(this.QUOTE);
+    public Character getDelimiter() {
+        return this.delimiter;
+    }
+
+    private void validateFieldList(String unparsedFieldList) {
+        String errorMessage = String.format(ERROR_MESSAGE_FORMATTER, unparsedFieldList);
+        int len = unparsedFieldList.length();
+        boolean validNoQuotes = len > 0 && Character.isDigit(unparsedFieldList.charAt(0)) && Character.isDigit(unparsedFieldList.charAt(len - 1));
+        boolean validWithQuotes = len > 0 && unparsedFieldList.startsWith(QUOTE) && unparsedFieldList.endsWith(QUOTE);
 
         if (!validWithQuotes && !validNoQuotes) {
             throw new IllegalArgumentException(errorMessage);
         }
 
-        String noQuotesFieldList;
-
-        if (validWithQuotes) {
-            noQuotesFieldList = trimmedUnparsedFieldList.substring(1, len - 1);
-        } else {
-            noQuotesFieldList = trimmedUnparsedFieldList;
-        }
-
-        for (int i = 0; i < noQuotesFieldList.length(); i++) {
-            if (Character.isDigit(noQuotesFieldList.charAt(i)) || noQuotesFieldList.charAt(i) == ',') {
+        for (int i = 0; i < unparsedFieldList.length(); i++) {
+            if (Character.isDigit(unparsedFieldList.charAt(i)) || unparsedFieldList.charAt(i) == ',') {
                 continue;
             }
 
             throw new IllegalArgumentException(errorMessage);
         }
+    }
 
-        String[] elements = noQuotesFieldList.split(",");
+    private void validateDelimiter(String delimiter) {
+        if (delimiter.length() > 1) {
+            throw new IllegalArgumentException(String.format(ERROR_MESSAGE_DELIMITER_FORMATTER, delimiter));
+        }
+    }
 
-        for (int i = 0; i < elements.length; i++) {
+    private void parseFieldList(String unparsedFieldList) {
+        String[] elements = unparsedFieldList.split(",");
+
+        for (String element : elements) {
             try {
-                this.fieldList.add(Integer.parseInt(elements[i]));
+                this.fieldList.add(Integer.parseInt(element));
             } catch (NumberFormatException nfe) {
-                throw new IllegalArgumentException(errorMessage, nfe);
+                throw new IllegalArgumentException(String.format(ERROR_MESSAGE_FORMATTER, unparsedFieldList), nfe);
             }
         }
+    }
+
+    private String cleanArgumentModifier(String unparsedArgumentModifier) {
+        String trimmedUnparsedArgumentModifier = unparsedArgumentModifier.trim();
+        int len = trimmedUnparsedArgumentModifier.length();
+        String noQuotesArgumentModifier;
+
+        if (len > 0 && trimmedUnparsedArgumentModifier.startsWith(QUOTE) && trimmedUnparsedArgumentModifier.endsWith(QUOTE)) {
+            noQuotesArgumentModifier = trimmedUnparsedArgumentModifier.substring(1, len - 1);
+        } else {
+            noQuotesArgumentModifier = trimmedUnparsedArgumentModifier;
+        }
+
+        return noQuotesArgumentModifier;
     }
 }

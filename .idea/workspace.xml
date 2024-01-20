@@ -7,8 +7,6 @@
     <list default="true" id="d5935eb3-61d3-4667-835a-99bf739e376a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/mariocoding/Cut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mariocoding/Cut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/mariocoding/utilities/ArgumentParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mariocoding/utilities/ArgumentParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/mariocoding/utilities/ArgumentParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/mariocoding/utilities/ArgumentParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +103,7 @@
     <configuration name="org.mariocoding.Cut" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.mariocoding.Cut" />
       <module name="CutTool.main" />
-      <option name="PROGRAM_PARAMETERS" value="-f&quot;1&quot; sample.tsv" />
+      <option name="PROGRAM_PARAMETERS" value="-f&quot;2&quot; sample.tsv" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="org.mariocoding.*" />
@@ -210,16 +208,5 @@
       <updated>1705701920685</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/mariocoding/Cut.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

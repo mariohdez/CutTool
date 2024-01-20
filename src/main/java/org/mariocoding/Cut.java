@@ -7,6 +7,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 
 public class Cut {
     public static void main(String[] args) {
@@ -34,8 +35,21 @@ public class Cut {
             String line = null;
 
             while ((line = bufferedReader.readLine()) != null) {
-                System.out.println(line);
+                String[] elements = line.split("\t");
+                int fieldCount = elements.length;
+                List<Integer> fieldList = argumentParser.getFieldList();
+
+                for (int i = 0; i < fieldList.size(); i++) {
+                    int fieldNumber = fieldList.get(i).intValue() - 1;
+                    if (fieldNumber >= fieldCount) {
+                        continue;
+                    }
+                    System.out.print(elements[fieldNumber]);
+                }
+
+                System.out.println();
             }
         }
     }
+
 }

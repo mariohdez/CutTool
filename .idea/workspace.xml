@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5935eb3-61d3-4667-835a-99bf739e376a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/mariocoding/utilities/ArgumentParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fourchords.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample.tsv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/org/mariocoding/utilities/ArgumentParserTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/mariocoding/Cut.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/mariocoding/Cut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/mariocoding/utilities/ArgumentParserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/mariocoding/utilities/ArgumentParserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -24,6 +24,7 @@ public class ArgumentParserTest {
     private static Stream<Arguments> inputsAndResults() {
         return Stream.of(
                 Arguments.of("-f1", List.of(1)),
+                Arguments.of("-f 1", List.of(1)),
                 Arguments.of("-f1,2,3", List.of(1,2,3)),
                 Arguments.of("-f \"1,2,3\"", List.of(1,2,3)),
                 Arguments.of("-f 1,2,3", List.of(1,2,3))
